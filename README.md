@@ -5,11 +5,11 @@ Je vais donc organiser la création de ce projet et l'accomplir.
 
 1 - Créer un repo fonctionnel ✅
 
-2 - Gestion de la flotte automobile (marque, model...)
+2 - Gestion de la flotte automobile (marque, model...) ✅
 
-3 - Gestion des clients (id, règles)
+3 - Gestion des clients (id, règles) ✅
 
-4 - Système de réservation (rental, donnée client, date, prix)
+4 - Système de réservation (rental, donnée client, date, prix) ✅
 
 5 - Classe centrale CarRentalSystem (gestion des vehicules, clients, rapport)
 
