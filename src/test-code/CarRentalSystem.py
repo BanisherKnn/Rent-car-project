@@ -13,4 +13,14 @@ class CarRentalSystem:
         for v in self.vehicule_dict.values():
             print (v.marque, v.model)
 
+    def creer_reservation(self, client, vehicule, date_debut, date_fin):
+        if not vehicule.disponibilite:
+            raise Exception("Véhicule est indisponible") 
+        
+        if client.age < vehicule.age_min:
+            raise Exception("Age insuffisant")
+        
+        rental = Rental(client, vehicule, date_debut, date_fin)
+        vehicule.disponibilite = False
+        client.historique.append(Rental)
 
