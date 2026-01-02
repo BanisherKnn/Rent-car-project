@@ -8,5 +8,6 @@ class Client:
         self.historique = []
         self.statut = statut
         
+        
 class ClientEnCours(Client):
     pass
