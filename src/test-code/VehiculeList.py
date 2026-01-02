@@ -1,2 +1,2 @@
-v1 = Vehicule(1 ,"BMW", "G82", "Berline", "3 portes", "Comme neuf", "200")
-v2 = Vehicule(2 ,"Mercedes", "C220", "Berline", "5 portes", "Bon état", "150")
+v1 = Vehicule(1 ,"BMW", "G82", "Berline", 2034, "Neuf", "200", 21)
+v2 = Vehicule(2 ,"Mercedes", "C220", "Berline", 1987, "Bon état", "150", 18)

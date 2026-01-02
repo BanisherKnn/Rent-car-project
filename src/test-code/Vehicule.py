@@ -1,7 +1,7 @@
 class Vehicule:
     def __init__(self, id_vehicule, marque, model, categorie, poids, etat, tarif, age_min, disponibilite):
         self.marque = marque
-        self.vehicule_id = id_vehicule
+        self.id_vehicule = id_vehicule
         self.model = model
         self.categorie = categorie
         self.poids = poids
