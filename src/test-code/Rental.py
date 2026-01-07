@@ -1,5 +1,6 @@
 class Rental:
-    def __init__(self, client, vehicule, date_debut, date_fin, prix_total, penalites, etat_de_reservation):
+    def __init__(self, client, vehicule, date_debut, date_fin,
+                 prix_total=0, penalites=0, etat_de_reservation="En cours"):
         self.client = client
         self.vehicule = vehicule
         self.date_debut = date_debut
