@@ -1,5 +1,6 @@
 class Vehicule:
-    def __init__(self, id_vehicule, marque, model, categorie, poids, etat, tarif, age_min, disponibilite):
+    def __init__(self, id_vehicule, marque, model, categorie, poids,
+                 etat, tarif, age_min, disponibilite=True):
         self.marque = marque
         self.id_vehicule = id_vehicule
         self.model = model
@@ -8,10 +9,10 @@ class Vehicule:
         self.etat = etat
         self.tarif = tarif
         self.age_min = age_min
-        self.disponibilite = True
+        self.disponibilite = disponibilite
 
 class Car(Vehicule):
-    def __init__(self, id_vehicule, marque, model, categorie, poids, etat, tarif, age_min, disponibilite, portes):
+    def __init__(self, id_vehicule, marque, model, categorie, poids,etat, tarif, age_min, disponibilite, portes):
         super().__init__(id_vehicule, marque, model, categorie, poids, etat, tarif, age_min, disponibilite)
         self.portes = portes
 
