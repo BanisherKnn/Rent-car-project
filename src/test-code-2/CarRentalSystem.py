@@ -1,5 +1,5 @@
 from database import SessionLocal
-from models.rental import Rental
+from models.Rental import Rental
 
 class CarRentalSystem:
     def __init__(self):
