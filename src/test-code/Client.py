@@ -8,7 +8,6 @@ class Client:
         self.historique = []
         self.statut = statut
         
-        
 class ClientEnCours(Client):
     def __init__(self, id_client, nom, prenom, age, permis, historique):
         super().__init__(id_client, nom, prenom, age, permis, historique, statut="Actif")
