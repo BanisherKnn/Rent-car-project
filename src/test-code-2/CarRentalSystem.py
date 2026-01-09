@@ -1,44 +1,55 @@
-from database import SessionLocal
-from models.Rental import Rental
+# CarRentalSystem.py
+from sqlalchemy.orm import Session
+from Client import Client
+from Vehicule import Vehicule
+from Rental import Rental
 
 class CarRentalSystem:
-    def __init__(self):
-        self.db = SessionLocal()
+    def __init__(self, db_session: Session):
+        self.db = db_session
 
-    def ajouter_client(self, client):
-        self.db.add(client)
+    # ---------------- Clients ----------------
+    def ajouter_client(self, client: Client):
+        # Ajouter uniquement si l'objet n'est pas déjà dans la session
+        if client not in self.db:
+            self.db.add(client)
         self.db.commit()
 
-    def ajouter_vehicule(self, vehicule):
-        self.db.add(vehicule)
+    def lister_clients(self):
+        return self.db.query(Client).all()
+
+    # ---------------- Véhicules ----------------
+    def ajouter_vehicule(self, vehicule: Vehicule):
+        if vehicule not in self.db:
+            self.db.add(vehicule)
         self.db.commit()
 
-    def creer_reservation(self, client, vehicule, date_debut, date_fin):
-        if not vehicule.disponibilite:
-            raise Exception("Véhicule indisponible")
+    def lister_vehicules_disponibles(self):
+        return self.db.query(Vehicule).filter_by(disponibilite=True).all()
 
-        if client.age < vehicule.age_min:
-            raise Exception("Âge insuffisant")
-
-        rental = Rental(
-            client=client,
-            vehicule=vehicule,
+    # ---------------- Réservations ----------------
+    def creer_reservation(self, client: Client, vehicule: Vehicule, date_debut, date_fin):
+        reservation = Rental(
+            client_id=client.id,
+            vehicule_id=vehicule.id,
             date_debut=date_debut,
             date_fin=date_fin
         )
+        self.db.add(reservation)
 
+        # Marquer le véhicule comme indisponible
         vehicule.disponibilite = False
 
-        self.db.add(rental)
         self.db.commit()
 
+    # ---------------- Rapport Global ----------------
     def rapport_global(self):
-        vehicules = self.db.query(type(self.db.query.__self__)).all()
-        clients = self.db.query(type(self.db.query.__self__)).all()
+        clients = self.db.query(Client).all()
+        vehicules = self.db.query(Vehicule).all()
+        reservations = self.db.query(Rental).all()
 
-        rapport = []
-        rapport.append("----Rapport Global----")
-        rapport.append(f"Nombre de véhicules : {len(vehicules)}")
-        rapport.append(f"Nombre de clients : {len(clients)}")
-
-        return "\n".join(rapport)
+        return (
+            f"Nombre de clients : {len(clients)}\n"
+            f"Nombre de véhicules : {len(vehicules)}\n"
+            f"Nombre de réservations : {len(reservations)}"
+        )

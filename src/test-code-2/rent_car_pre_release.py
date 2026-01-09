@@ -1,7 +1,7 @@
 from datetime import date
 from CarRentalSystem import CarRentalSystem
-from models.client import Client
-from models.vehicule import Vehicule
+from Client import Client
+from Vehicule import Vehicule
 
 system = CarRentalSystem()
 
