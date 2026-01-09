@@ -13,10 +13,10 @@ Je vais donc organiser la création de ce projet et l'accomplir.
 
 5 - Classe centrale CarRentalSystem (gestion des vehicules, clients, rapport) ✅
 
-6 - Troubleshoot et correction des bugs, rendre l'appli fonctionnelle
+6 - Troubleshoot et correction des bugs, rendre l'appli fonctionnelle ✅
 
-7 - Créer une base de données (sqlalchemy)
+7 - Créer une base de données (sqlalchemy) ✅
 
-8 - Créer une interface graphique (streamlit)
+8 - Créer une interface graphique (streamlit) ✅
 
 9 - Importer la version finale dans la branche Main
