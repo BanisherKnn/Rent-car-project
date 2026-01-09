@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./old-version/test-code"
+    ]
+}
